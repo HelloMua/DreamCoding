@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+    <!-- CSS: 원래는 파일을 따로 만들어서 보관해야함 -->
+    <style>
+        .tag {
+            display: inline-block;
+            background-color: thistle;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag">Window Size</div>
+    <!-- JavaScript: 원래는 파일을 따로 만들어서 보관해야함 -->
+    <script>
+        // Document.querySelector()는 제공한 선택자 또는 선택자 뭉치와 일치하는 문서 내 첫 번째 Element를 반환합니다. 
+        // -> DOM 요소 중에 클래스가 tag이고 첫 번째로 발견되는 것이 tag 변수에 할당되어짐
+        // 일치하는 요소가 없으면 null을 반환합니다.
+        const tag = document.querySelector('.tag')
+
+        function updateTag() {
+            // string과 변수를 함께 사용가능: ``(백틱기호)
+            // 요소(element) 내에 포함 된 HTML 또는 XML 마크업을 가져오거나 설정
+            tag.innerHTML = `
+                window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+                window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+                window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+                documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+            `;
+        }
+        
+        // resize될 때마다 콜백함수가 호출됨
+        window.addEventListener('resize', () => {
+            updateTag();
+        });
+
+        updateTag();
+    </script>
+</body>
+</html>
