@@ -16,7 +16,10 @@ function onAdd() {
     // 3. items 컨테이너 안에 새로 만든 item을 추가함
     items.appendChild(item);
 
-    // 4. 인풋을 초기화 함
+    // 4. 새로 추가된 아이템으로 스크롤링
+    item.scrollIntoView({ block: 'center' });
+
+    // 5. 인풋을 초기화 함
     input.value = '';
     input.focus();
 }
@@ -55,5 +58,7 @@ addBtn.addEventListener('click', () => {
 });
 
 input.addEventListener('keypress', (event) => {
-    console.log('key');
+    if (event.key === 'Enter') {
+        onAdd();
+    }
 });
