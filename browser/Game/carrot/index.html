@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrot Game</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <!-- defer을 넣지 않으면 스크립트가 HTML이 준비되기 이전에 실행됨 -->
+    <script src="main.js" defer></script>
     <script
         src="https://kit.fontawesome.com/9eb162ac0d.js"
         crossorigin="anonymous"
@@ -18,17 +19,17 @@
             <button class="game__button">
                 <i class="fas fa-play"></i>
             </button>
-            <span class="game__timer">0:0</button>
-            <span class="game__score">9</button>
+            <span class="game__timer">0:0</span>
+            <span class="game__score">9</span>
         </header>
         <section class="game__field"></section>
     </section>
-    
-    <section class="popup">
+
+    <section class="pop-up pop-up--hide">
         <button class="pop-up__refresh">
             <i class="fas fa-redo"></i>
         </button>
-        <span class="pop-up-message">Hello</span>
+        <span class="pop-up__message">Hello</span>
     </section>
 </body>
 </html>
